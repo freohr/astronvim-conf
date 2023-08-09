@@ -19,5 +19,14 @@ return {
         operations = false,
       }
     }
-}
+  },
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    init = function()
+      vim.g.gruvbox_material_foreground = "mix"
+      vim.g.gruvbox_material_background = "medium"
+    end
+  },
 }
