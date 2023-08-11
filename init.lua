@@ -27,6 +27,12 @@ return {
   },
 
   lsp = {
+    -- manual LSP configs
+    config = {
+      bashls = {
+        filetypes = { 'sh', 'zsh' }
+      }
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
