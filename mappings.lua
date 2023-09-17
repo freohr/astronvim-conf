@@ -20,14 +20,25 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-  ["<A-]>"] = {
-    function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    desc = "Next buffer"
+    ["<A-]>"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer"
+    },
+    ["<A-[>"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer"
+    },
+    ["<leader>s"] = { name = "Semshi" },
+    ["<leader>se"] = { ":Semshi enable<cr>", desc = "Enable Semshi coloring" },
+    -- Quick insert shebangs
+    ["<leader>#"] = { name = "shebangs" },
+    ["<leader>#b"] = { "gg^i#!/bin/bash<Esc>``", desc = "bash"},
+    ["<leader>#z"] = { "gg^i#!/bin/zsh<Esc>``", desc = "zsh"},
+    ["<leader>#p"] = { "gg^i#!/bin/python<Esc>``", desc = "system python"},
+    ["<leader>#P"] = { "gg^i#!python<Esc>``", desc = "venv python"},
   },
-  ["<A-[>"] = {
-    function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    desc = "Previous buffer"
-  }
+  i = {
+
   },
   t = {
     -- setting a mapping to false will disable it

@@ -77,6 +77,16 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    vim.api.nvim_create_autocmd('BufWritePost',
+    {
+      desc = "reenable Semshi on python file save",
+      group = vim.api.nvim_create_augroup("semshi", {clear = true}),
+      callback = function(opts)
+        if vim.bo[opts.buf].filetype == "python" then
+          vim.cmd "Semshi enable"
+        end
+      end
+    })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
