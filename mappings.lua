@@ -1,3 +1,4 @@
+local utils = require('user.utils')
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
@@ -28,8 +29,6 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer"
     },
-    ["<leader>s"] = { name = "Semshi" },
-    ["<leader>se"] = { ":Semshi enable<cr>", desc = "Enable Semshi coloring" },
     -- Quick insert shebangs
     ["<leader>#"] = { name = "shebangs" },
     ["<leader>#b"] = { "gg^i#!/bin/bash<Esc>``", desc = "bash"},
@@ -38,7 +37,13 @@ return {
     ["<leader>#P"] = { "gg^i#!python<Esc>``", desc = "venv python"},
   },
   i = {
-
+  },
+  v = {
+    ["<leader>c"] = {
+      function()
+        vim.cmd(":e "..utils.buf_vtext())
+      end,
+      desc = "Create file from selection"}
   },
   t = {
     -- setting a mapping to false will disable it
