@@ -31,7 +31,7 @@ return {
     config = {
       bashls = {
         filetypes = { 'sh', 'zsh' }
-      }
+      },
     },
     -- customize lsp formatting options
     formatting = {
@@ -42,7 +42,8 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          "javascript"
+          "javascript",
+          "vue"
           -- "python",
         },
       },

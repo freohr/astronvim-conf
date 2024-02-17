@@ -1,3 +1,5 @@
+local events = require("neo-tree.events")
+
 return {
   -- customize alpha options
   {

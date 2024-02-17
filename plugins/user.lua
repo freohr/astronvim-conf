@@ -86,5 +86,80 @@ return {
         ["<leader>="] = { ":call gustav#toggle()<CR>", desc = "Toggle GFM checkbox status"},
       }
     }
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python"
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neo-tree/neo-tree.nvim",
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end,
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- Optional
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "13th Age - Stone Thief",
+          path = "~/Ludothèque/TTRPGs/campaigns/13A-Stone-Thief"
+        },
+        {
+          name = "OSE - Marches du Nord",
+          path = "~/Ludothèque/TTRPGs/campaigns/OSE-marches-du-nord"
+        }
+      }
+    }
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = true,
+    dependencies = {
+      "folke/twilight.nvim"
+    },
+    keys = {
+      -- Zen Mode 
+      { "<leader>z", ":ZenMode<cr>", desc = "Toggle Zen Mode" },
+    },
+    opts = {}
+  },
+  {
+    "folke/twilight.nvim",
+    opts = {}
+  },
+  {
+    'f3fora/nvim-texlabconfig',
+    config = function()
+        require('texlabconfig').setup(config)
+    end,
+    ft = { 'tex', 'bib' }, -- Lazy-load on filetype
+    build = 'go build'
+    -- build = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
+  },
+  {
+    "stevearc/overseer.nvim",
+    opts = {},
+    keys = {
+      { "<leader>O", ":OverseerRun<cr>", desc = "Overseer build options"}
+    }
+  },
+  {
+    "mustache/vim-mustache-handlebars",
+    opts = {},
+    ft = "handlebars"
   }
 }
